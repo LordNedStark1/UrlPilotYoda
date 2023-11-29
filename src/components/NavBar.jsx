@@ -31,7 +31,10 @@ export default function NavBar() {
                   onClick={joinOurWaitingListButton}  maxWidth="34vw" width="15vw" height="45px" backgroundColor={'#5F259F'} />
               </div>
           </div> */}
-              <img src={navPlane} alt='' height={55}  />
+              <img src={navPlane} alt='' 
+              height={85} 
+              width={85}
+              />
            
           </div>
   )

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef  } from 'react'
 import './LandingPage.css'
 import NavBar from '../../components/NavBar'
 import shortMan from '../../assets/Images/smiling-short-man-removebg-preview.png'
@@ -7,6 +7,9 @@ import masterYoda from '../../assets/Images/master yoda.json'
 import axios from 'axios'
 import lottie from 'lottie-web';
 import {CopyToClipboard} from 'react-copy-to-clipboard'
+import BaseUrl from '../constants/Constants'
+import LinkedInLogo from '../../assets/Images/linkedin logo.png'
+
 
 // 08116324836
 const quotes = [
@@ -86,7 +89,7 @@ export default function LandingPage() {
 
 		try {
 			const response = await axios.post(
-				"http://localhost:7349/shortenUrl",
+				BaseUrl +"shortenUrl",
 				{actualUrlLink: url}
 			);
       let resultUrl = response.data.replacedUrl;
@@ -99,11 +102,12 @@ export default function LandingPage() {
 		}
 	}
   
+  
   const customiseUrlFunction = async()=> {
 
 		try {
 			const response = await axios.post(
-				"http://localhost:7349/customise",
+				BaseUrl+"customise",
 				{
           actualUrlLink: urlToCustomise ,
           customizedUrlChoice: urlCustomizationChoice
@@ -126,6 +130,25 @@ export default function LandingPage() {
             {copied? <spam style={{color: 'green'}}> Copied! </spam>: null}
             </p>
            </div>
+  }
+  const redirectToLinkedIn = () => {
+
+    window.location.href = '   https://www.linkedin.com/in/osisiogu-benjamin-55794a25b/';
+  };
+  const footer =()=>{
+    return(
+      <div className='footer'>
+        <div className='footer-contact'>
+          <p>Want to see my other works contact me</p>
+          <button
+          onClick={redirectToLinkedIn}
+          >
+      
+            <img src={LinkedInLogo} alt='' height={35} width={100}/>
+          </button>
+        </div>
+      </div>
+    )
   }
 
   return (
@@ -210,9 +233,7 @@ export default function LandingPage() {
 
         <div  className="airplane-lottie" style={{ height: '200px', width: '470px'}} ref={planeContainer} ></div>
       </div>
-      <div className='footer'>
-      
-      </div>
+      {footer()}
     
     </div>
   )

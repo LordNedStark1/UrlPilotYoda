@@ -153,5 +153,21 @@ center input{
 .footer{
     background-color: #3e4053;
     margin-top: 5vh;
-    height: 11vh;
+    height: 21vh;
+    color: azure;
+    font-weight: 600px;
+    font-family: 'Poppins', sans-serif;
+}
+.footer button{
+    width: 100px;
+    height: 35px;
+    border-radius: 20px;
+}
+.footer img{
+
+    border-radius: 20px;
+}
+.footer-contact{
+    justify-content: center;
+    display: grid;
 }
