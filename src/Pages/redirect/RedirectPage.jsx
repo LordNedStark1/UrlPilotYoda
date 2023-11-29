@@ -5,33 +5,34 @@ import {redirect} from "react-router-dom"
 
 
 export default function RedirectPage() {
-    const[originalUrl, setOriginalUrl] = useState("")
+    const[isLoaded, setIsLoading] = useState(true)
     const params = useParams()
 
     const retriveUrl = useCallback(async () => {
         let urlToRetrive = params.id
         console.log(urlToRetrive);
+        
+    
 		try {
 			const response = await axios.get(
 				"http://localhost:7349/" +urlToRetrive
 				
 			);
-			// console.log(response.data);
-			setOriginalUrl(response.data)
+            let url = response.data
+			
+            window.location.href = url;
+			setIsLoading(false)
 		} catch (error) {
 			console.log(error);
-			// setError(error.response.data.data);
-			// console.log(error.response.data.data);
+		
 		}
 	}, []);
     
-	useEffect(() => {
+	useEffect(() => {        
 		retriveUrl()
 	}, [retriveUrl]);
-    if(originalUrl){
-        console.log(originalUrl);
-        //  return redirect(originalUrl)   
-    }
+
+ 
   return (
     <div>RedirectPage : {JSON.stringify(params)}</div>
   )
