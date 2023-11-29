@@ -1,11 +1,17 @@
 import axios  from 'axios';
 import React, { useCallback, useEffect, useState } from 'react'
 import {useParams} from 'react-router-dom'
-import {redirect} from "react-router-dom"
+import ClipLoader from "react-spinners/ClipLoader"
 
+const override = {
+    display: "block",
+    margin: "0 auto",
+    borderColor: "red",
+  };
 
 export default function RedirectPage() {
-    const[isLoaded, setIsLoading] = useState(true)
+    const[loading, setLoading] = useState(true)
+    let [color, setColor] = useState("#ffffff");
     const params = useParams()
 
     const retriveUrl = useCallback(async () => {
@@ -21,7 +27,7 @@ export default function RedirectPage() {
             let url = response.data
 			
             window.location.href = url;
-			setIsLoading(false)
+			setLoading(false)
 		} catch (error) {
 			console.log(error);
 		
@@ -34,6 +40,16 @@ export default function RedirectPage() {
 
  
   return (
-    <div>RedirectPage : {JSON.stringify(params)}</div>
+    <div>
+          <ClipLoader
+        color={color}
+        loading={loading}
+        cssOverride={override}
+        size={150}
+        aria-label="Loading Spinner"
+        data-testid="loader"
+      />
+       
+    </div>
   )
 }
