@@ -11,16 +11,18 @@ import {CopyToClipboard} from 'react-copy-to-clipboard'
 // 08116324836
 const quotes = [
   'Am short of words...',
-  'Twitter! Too long. Just call it X.',
+  'Twitter! Too long. Shorten it... X',
   "I love briefings, I just can't figure out why",
   "Time is short, don't waste it",
   "Don't look down on me. Don't you dare!",
   "A wise man knows when and how to keep short",
   "I am brief and clear. Its my conversation strenght",
   "No! Try not. Do. Or do not. There is no try.",
+  'Am short of words...',
   "No! Try not. Do. Or do not. There is no try.",
   "You must unlearn what you have learned.",
   "Great warrior. Hmm. Wars not make one great.",
+  'Am short of words...',
   "'I don't believe it!' 'That is why you fail.' "
 ]
 export default function LandingPage() {
@@ -73,7 +75,7 @@ export default function LandingPage() {
   }, []);
 
   const displayYodaThought = () =>{
-    let index = Math.floor(Math.random() * 10)
+    let index = Math.floor(Math.random() * 13)
 
      setYodaTaught(quotes[index])
   }
