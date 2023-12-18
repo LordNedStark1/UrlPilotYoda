@@ -18,7 +18,7 @@ export default function RedirectPage() {
 
     const retriveUrl = useCallback(async () => {
         let urlToRetrive = params.id
-        console.log(urlToRetrive);
+        console.log(urlToRetrive);  
         
     
 		try {

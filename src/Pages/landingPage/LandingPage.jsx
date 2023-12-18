@@ -122,6 +122,11 @@ export default function LandingPage() {
 			// console.log(error.response.data.data);
 		}
 	}
+  const failureClipboard = ()=>{
+    return <div>
+      <p>So sorry! Unable to shorten text right now. Really don't know why. Maybe try again, it might just work now, who knows</p>
+    </div>
+  }
   const successClipboard =(url)=>{
     return <div className='url-result-display'>
             <p className='url-response-text'>{url}</p>
@@ -182,7 +187,7 @@ export default function LandingPage() {
             onCopy={()=> setCopied(true)}
             >
           <div className='url-result-display'>
-              {shortenedUrl ? successClipboard(shortenedUrl)  : ""}              
+              {shortenedUrl ? successClipboard(shortenedUrl)  : failureClipboard()  }              
           </div>
           
             </CopyToClipboard>
@@ -225,11 +230,11 @@ export default function LandingPage() {
               {customisedUrl ? successClipboard(customisedUrl)  : ""}              
           </div>
             </CopyToClipboard>
-            {customizedCopied? <spam style={{color: 'green'}}> Copied </spam>: null}
+            {customizedCopied? <spam style={{color: 'green'}}> Copied </spam>: ""}
         </center>
       </div>
       <div className='airplane-div'>
-        <p>You tell us your desired destination, we brand the journey and make it even shorter with the help of our master pilot Yoda. He takes you were you want to go in short time. UrlPilot, you url's spaceship</p>
+        <p>You tell us your desired destination, we brand the journey and make it even shorter with the help of our master pilot Yoda. He takes you were you want to go in short time.<span className='span-url-pilot'> UrlPilot , your url's spaceship</span></p>
 
         <div  className="airplane-lottie" style={{ height: '200px', width: '470px'}} ref={planeContainer} ></div>
       </div>

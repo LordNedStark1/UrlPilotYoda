@@ -98,6 +98,7 @@ center input{
 
 .yoda-thoughts-div{
     display: flex;
+
 }
 
 .yoda-thoughts-div p{
@@ -166,6 +167,10 @@ center input{
 .footer img{
 
     border-radius: 20px;
+}
+.span-url-pilot{
+    color: #683c50;
+    
 }
 .footer-contact{
     justify-content: center;
